@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda</title>
+
+    <!-- Importar la fuente Roboto desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-12/assets/css/login-12.css">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            line-height: 1.5;
+            color: #333;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #814646 !important;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .nav-link:hover {
+            color: #cf6915 !important;
+        }
+
+        /* Section Styles */
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-image: url('fondoHeader.jpg');
+            color: rgb(8, 8, 8);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-size: cover;
+            /* Asegura que la imagen cubra toda la pantalla */
+            background-position: center;
+            /* Centra la imagen en la pantalla */
+            background-repeat: no-repeat;
+            /* Evita que la imagen se repita */
+            background-attachment: fixed;
+        }
+
+        .imgMedium {
+            text-align: center;
+            padding: 20px;
+            background-image: url('invitar.png');
+            color: rgb(8, 8, 8);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-size: cover;
+            /* Asegura que la imagen cubra toda la pantalla */
+            background-position: center;
+            /* Centra la imagen en la pantalla */
+            background-repeat: no-repeat;
+            /* Evita que la imagen se repita */
+            background-attachment: fixed;
+        }
+
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            color: #814646;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.5em;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e63946;
+        }
+
+        .section p,
+        .section label {
+            font-size: 1em;
+            color: #333;
+        }
+
+        .gallery img {
+            border-radius: 15px;
+        }
+
+        #weddingGallery {
+            width: 100%;
+            height: auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .confirmation-form {
+            font-family: 'Open Sans', sans-serif;
+            max-width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+
+        }
+
+        .confirmation-form input,
+        .confirmation-form select,
+        .confirmation-form button {
+            border-radius: 5px;
+        }
+
+        .map-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ffc8dd;
+            color: white;
+            font-size: 1em;
+        }
+
+
+        .countdown {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 90%;
+        }
+
+        .countdown h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .countdown .time {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .countdown .time span {
+            display: inline-block;
+            margin: 0 5px;
+            color: #6c757d;
+        }
+
+        .time-segment {
+            margin-bottom: 5px;
+        }
+
+        .time-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .header p {
+                font-size: 1.2em;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .countdown .time {
+                font-size: 30px;
+            }
+
+            .countdown .time span {
+                margin: 0 3px;
+            }
+
+            .confirmation-form {
+                max-width: 90%;
+            }
+
+            .carousel-item img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            /* Ajusta la altura automáticamente */
+            object-fit: contain;
+            /* Mantiene la proporción de la imagen */
+            display: block;
+            /* Necesario para el centrado */
+            margin: 0 auto;
+            /* Centrado horizontal */
+        }
+
+        /* Estilos para dispositivos pequeños */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .confirmation-form {
+                padding: 15px;
+            }
+
+            .countdown .time {
+                font-size: 24px;
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            /* Permite que los divs se ajusten en múltiples líneas si es necesario */
+            justify-content: space-between;
+            /* Espacio entre los divs */
+        }
+
+        .div1,
+        .div2 {
+            padding: 20px;
+            margin: 10px;
+            flex: 1;
+            /* Hace que los divs ocupen el mismo espacio */
+            min-width: 200px;
+            /* Ancho mínimo para los divs */
+        }
+
+        .headerUp {
+            display: flex;
+            justify-content: center;
+            /* Centra la imagen horizontalmente */
+            align-items: center;
+            /* Centra la imagen verticalmente (si el contenedor tiene altura fija) */
+            background-color: #fefefe;
+            /* Color de fondo para ver el contenedor */
+            padding: 1%;
+        }
+
+        .headerForm {
+            display: flex;
+            justify-content: center;
+            /* Centra la imagen horizontalmente */
+            align-items: center;
+            /* Centra la imagen verticalmente (si el contenedor tiene altura fija) */
+            background-color: #fefefe;
+            /* Color de fondo para ver el contenedor */
+            padding: 1%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- Invitación Section -->
+    <div id="invitacion" class="header">
+        <!-- Menú de Navegación -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="padding-right: 15%; padding-top: 2%;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#invitacion">Invitación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#confirmacion">Confirmación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#detalles">Detalles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ubicacion">Ubicación</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        </br></br></br></br></br></br>
+
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="countdown">
+                <div class="row text-center">
+                    <div class="col time-segment">
+                        <div class="time" id="days">0</div>
+                        <div class="time-label">Días</div>
+                    </div>
+                    <div class="col time-segment">
+                        <div class="time" id="hours">0</div>
+                        <div class="time-label">Horas</div>
+                    </div>
+                    <div class="col time-segment">
+                        <div class="time" id="minutes">0</div>
+                        <div class="time-label">Minutos</div>
+                    </div>
+                    <div class="col time-segment">
+                        <div class="time" id="seconds">0</div>
+                        <div class="time-label">Segundos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Fecha destino (05 de abril de 2025)
+        const countDownDate = new Date("April 5, 2025 00:00:00").getTime();
+
+        // Actualiza el contador cada 1 segundo
+        const countdownFunction = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            // Calcula los días, horas, minutos y segundos
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Muestra el resultado en los elementos con los IDs correspondientes
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            // Si la cuenta regresiva ha terminado, muestra un mensaje
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.querySelector(".countdown").innerHTML = "¡La fecha ha llegado!";
+            }
+        }, 1000);
+    </script>
+
+    </div>
+    <div class="headerUp">
+        <img style="width: 90%;" src="carrusel/headerUp.gif">
+    </div>
+
+    <div id="galeria" class="container">
+
+        <div class="div1">
+            <!-- Galería (Carrusel) -->
+
+            <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#imageCarousel" data-slide-to="1"></li>
+                    <li data-target="#imageCarousel" data-slide-to="2"></li>
+                    <li data-target="#imageCarousel" data-slide-to="3"></li>
+                    <li data-target="#imageCarousel" data-slide-to="4"></li>
+                    <li data-target="#imageCarousel" data-slide-to="5"></li>
+                </ol>
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <img src="carrusel/5.png" alt="Imagen 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="carrusel/4.png" alt="Imagen 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="carrusel/6.png" alt="Imagen 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="carrusel/1.png" alt="Imagen 4">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="carrusel/2.png" alt="Imagen 5">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+        <div class="div2">
+            <div>
+                <img style="width: 100%;" src="carrusel/txt1.png">
+            </div>
+        </div>
+    </div>
+    <div class="imgMedium">
+
+    </div>
+    <!-- Detalles del Matrimonio -->
+    <div id="detalles" class="section">
+        <img src="DateBoda.png" style="width: 60%;"></img>
+
+    </div>
+    <div class="headerUp">
+        <img style="width: 90%;" src="formHeader.gif">
+    </div>
+    <!-- Confirmación de Asistencia -->
+    <div id="confirmacion" class="section">
+
+        <h1>¡Confirma tu asistencia aquí!</h1></br>
+        <form class="confirmation-form">
+            <div class="form-group">
+                <label for="name"></label>
+                <input type="text" class="form-control border-0 border-bottom rounded-0" id="name"
+                    placeholder="Nombres Completos">
+            </div>
+            <div class="form-group">
+                <label for="email"></label>
+                <input type="email" class="form-control border-0 border-bottom rounded-0" id="email"
+                    placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="totalP"></label>
+                <input type="text" class="form-control border-0 border-bottom rounded-0" id="totalP"
+                    placeholder="Total de personas">
+            </div>
+            <div class="form-group">
+                <label for="attendance">¿Asistirás?</label>
+                <select class="form-control" id="attendance">
+                    <option>Sí, asistiré</option>
+                    <option>No podré asistir</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-dark btn-block">Confirmar Asistencia</button>
+        </form>
+    </div>
+
+
+
+    <!-- Ubicación -->
+    <div id="ubicacion" class="section map-container">
+        <h1>Ubicación</h1>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093546!2d144.95373531541124!3d-37.81720944202119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5774d0a5b765fd!2sFederation+Square!5e0!3m2!1sen!2sus!4v1601940417746!5m2!1sen!2sus"
+            width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>¡Estamos emocionados de compartir este día tan especial contigo! Nos vemos pronto.</p>
+    </footer>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
